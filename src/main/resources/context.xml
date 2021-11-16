@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+      http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.2.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+<!--
+    <aop:aspectj-autoproxy/>
+    -->
+    <context:annotation-config/>
+
+    <context:property-placeholder location="classpath:config.properties"/>
+
+    <!--启用注解驱动的定时任务-->
+    <task:annotation-driven scheduler="myScheduler"/>
+    <task:scheduler id="myScheduler" pool-size="10"/>
+
+
+    <context:component-scan base-package="edu.sjtu.party">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <bean class="edu.sjtu.api.applicationToolkit.API">
+        <property name="baseApiUri" value="https://api.sjtu.edu.cn" />
+    </bean>
+
+    <!-- 数据源配置 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${db.driverClassName}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+        <property name="validationQuery" value="select 1"/>
+        <property name="validationQueryTimeout" value="5"/>
+        <property name="maxActive" value="50"/>
+        <property name="maxWait" value="10000"/>
+        <property name="removeAbandoned" value="true"/>
+        <property name="removeAbandonedTimeout" value="300"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- Hibernate要扫描的包 -->
+        <property name="packagesToScan">
+            <list>
+                <value>edu.sjtu.party.model</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.db.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">false</prop>
+                <prop key="hibernate.autoReconnect">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- 启动事务对注解的支持？ -->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+
+    <!-- HttpClient 的参数设置 -->
+    <bean id="connectionManagerParams" class="org.apache.commons.httpclient.params.HttpConnectionManagerParams">
+        <property name="connectionTimeout" value="10000"/>
+        <property name="soTimeout" value="10000"/>
+        <property name="maxTotalConnections" value="30"/>
+        <property name="defaultMaxConnectionsPerHost" value="20"/>
+    </bean>
+
+    <bean id="connectionManager" class="org.apache.commons.httpclient.MultiThreadedHttpConnectionManager">
+        <property name="params" ref="connectionManagerParams"/>
+    </bean>
+
+    <bean id="httpclient" class="org.apache.commons.httpclient.HttpClient">
+        <constructor-arg>
+            <ref bean="connectionManager"/>
+        </constructor-arg>
+    </bean>
+    <!-- END OF HttpClient 的参数设置 -->
+
+</beans>

@@ -1,0 +1,54 @@
+2021-10-11 12:28:49.597 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2021-10-11 12:28:49.606 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.11.Final}
+2021-10-11 12:28:49.609 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2021-10-11 12:28:49.611 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2021-10-11 12:28:50.222 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-10-11 12:28:50.362 [main] INFO  o.h.e.t.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2021-10-11 12:28:50.367 [main] INFO  o.h.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+2021-10-11 12:28:51.912 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-10-11 12:28:51.957 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-10-11 12:28:51.968 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-10-11 12:28:52.294 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1054, SQLState: 42S22
+2021-10-11 12:28:52.294 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Unknown column 'task0_.enbale' in 'field list'
+2021-10-11 12:28:52.330 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Warning Code: 1054, SQLState: 42S22
+2021-10-11 12:28:52.331 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Unknown column 'task0_.enbale' in 'field list'
+2021-10-11 12:29:27.212 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2021-10-11 12:29:27.219 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.11.Final}
+2021-10-11 12:29:27.220 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2021-10-11 12:29:27.221 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2021-10-11 12:29:28.419 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-10-11 12:29:28.581 [main] INFO  o.h.e.t.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2021-10-11 12:29:28.585 [main] INFO  o.h.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+2021-10-11 12:29:29.956 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-10-11 12:29:29.980 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-10-11 12:29:29.990 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-10-11 12:29:47.536 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2021-10-11 12:29:47.542 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.11.Final}
+2021-10-11 12:29:47.543 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2021-10-11 12:29:47.544 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2021-10-11 12:29:48.087 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-10-11 12:29:48.208 [main] INFO  o.h.e.t.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2021-10-11 12:29:48.212 [main] INFO  o.h.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+2021-10-11 12:29:49.587 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-10-11 12:29:49.610 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-10-11 12:29:49.618 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-10-11 13:36:46.796 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2021-10-11 13:36:46.817 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.11.Final}
+2021-10-11 13:36:46.819 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2021-10-11 13:36:46.820 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2021-10-11 13:36:47.379 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-10-11 13:36:47.498 [main] INFO  o.h.e.t.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2021-10-11 13:36:47.501 [main] INFO  o.h.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+2021-10-11 13:36:48.999 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-10-11 13:36:49.074 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-10-11 13:36:49.091 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-10-11 15:09:27.914 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2021-10-11 15:09:27.932 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.11.Final}
+2021-10-11 15:09:27.934 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2021-10-11 15:09:27.935 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2021-10-11 15:09:33.175 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-10-11 15:09:33.305 [main] INFO  o.h.e.t.internal.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2021-10-11 15:09:33.309 [main] INFO  o.h.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+2021-10-11 15:09:34.994 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-10-11 15:09:35.018 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-10-11 15:09:35.029 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references

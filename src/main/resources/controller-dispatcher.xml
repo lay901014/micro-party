@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-4.2.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+
+
+<!-- 声明代理的时候使用目标类而非自动生成的代理中间类 -->
+    <!--
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    -->
+    <context:property-placeholder location="classpath:config.properties"/>
+
+    <!-- 要扫描的组建所在base包 -->
+    <context:component-scan base-package="edu.sjtu.party.web.controller" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+
+    <!-- 注解驱动，@ResponseBody等受影响 -->
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
+        <mvc:message-converters>
+            <bean class="edu.sjtu.party.web.controller.convert.HttpMessageConverter"/>
+        </mvc:message-converters>
+        <mvc:argument-resolvers>
+            <bean class="edu.sjtu.party.web.controller.resolver.SessionRelatedAttributeArgumentResolver"/>
+            <bean class="org.springframework.mobile.device.DeviceWebArgumentResolver"/>
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>
+
+    <mvc:resources mapping="/**" location="/dist/" />
+
+    <!-- 开启默认的Servlet处理 —— 自动处理图片/html等 -->
+    <mvc:default-servlet-handler/>
+
+    <!--
+    <bean name="fileService" class="com.yunban.file.FileServiceImpl"></bean>
+    <bean name="uploadController" class="edu.sjtu.cpc.web.controller.UploadController"></bean>
+    -->
+    <!-- <bean name="uploadController" class="com.yunban.file.UploadController"></bean> -->
+
+    <!-- 定义MultipartResolver UploadController中会用到 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize">
+            <value>104857600</value>
+        </property>
+        <property name="maxInMemorySize">
+            <value>40960</value>
+        </property>
+    </bean>
+
+    <!-- 隐藏页面扩展名 -->
+    <!--HTML视图解析器 必须先配置freemarkerConfig,注意html是没有prefix前缀属性的-->
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath">
+            <value>/dist/</value>
+        </property>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="default_encoding">UTF-8</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="url_escaping_charset">UTF-8</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="htmlViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="order" value="0"></property>
+        <property name="suffix" value=".html"/>
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+    </bean>
+    <bean id="jspWiewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="1"/>
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <mvc:interceptors>
+        <!--
+        <bean name="messageInterceptor" class="com.yunban.message.MessageInterceptor" />
+        <bean name="simpleLoginInterceptor" class="com.yunban.identity.SimpleLoginInterceptor" />
+        -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="edu.sjtu.party.web.controller.interceptor.SecurityInterceptor"/>
+        </mvc:interceptor>
+        <bean class="org.springframework.mobile.device.DeviceResolverHandlerInterceptor" />
+    </mvc:interceptors>
+
+    <bean id="exceptionHandler" class="edu.sjtu.party.web.controller.DefaultExceptionHandler"/>
+
+    <!--
+    @from docs:
+    public ContentNegotiationConfigurer favorPathExtension(boolean favorPathExtension)
+    Indicate whether the extension of the request path should be used to determine the requested media type with the highest priority.
+    By default this value is set to true in which case a request for /hotels.pdf will be interpreted as a request for "application/pdf" regardless of the Accept header.
+
+    @see http://stackoverflow.com/questions/23578742/spring-does-not-ignore-file-extension
+    add by marstone, 2015/05/20
+-->
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="false" />
+    </bean>
+
+    <!-- 统一返回处理（包活异常的拦截）切面 -->
+    <!--
+    <bean name="returnAspect" class="com.yunban.aspect.ReturnAspect"></bean>
+    -->
+
+    <!-- 消息/异常处理切面 -->
+    <!--
+    <bean name="messageAspect" class="com.yunban.message.MessageAspect"></bean>
+    -->
+
+    <!-- 富文本处理切面 -->
+    <!--
+    <bean name="htmlAspect" class="com.yunban.html.HTMLAspect"></bean>
+    <bean name="validateAspect" class="com.yunban.web.input.validate.ValidateAspect"></bean>
+    -->
+
+    <!-- 切面的执行顺序（依赖于摆放顺序）对程序执行结果有影响 -->
+    <!--
+    <aop:aspectj-autoproxy proxy-target-class="true">
+        <aop:include name="returnAspect"/>
+        <aop:include name="messageAspect"/>
+        <aop:include name="htmlAspect"/>
+        <aop:include name="validateAspect"/>
+    </aop:aspectj-autoproxy>
+    -->
+</beans>
