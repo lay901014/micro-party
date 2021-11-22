@@ -1,0 +1,119 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+
+//分辨率对应样式
+// 大于等于1200px PC样式，导航栏展开
+// 大于等于992px Pad样式，导航栏收起
+// 小于992px mobile样式，导航栏放在顶部
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: SimSun, SimSuncss, STSong,  FangSong, FangSong_GB2312, STFangsong, PingFang SC, Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+.page-content {
+    height: 100%;
+    padding: 0 20px 44px 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: $primaryColor;
+  text-decoration: none;
+}
+
+input::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, .5);
+    //font-size: 16px;
+}
+
+input::-moz-placeholder {
+    color: rgba(0, 0, 0, .5);
+    //font-size: 16px;
+}
+
+input:-moz-placeholder {
+    color: rgba(0, 0, 0, .5);
+    //font-size: 16px;
+}
+input:-ms-input-placeholder {
+    color: rgba(0, 0, 0, .5);
+    //font-size: 16px;
+}
+
+div:focus {
+  outline: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.app-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.mobile-page {
+    max-width: 640px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+
+    .logo {
+        width: 170px;
+        height: 45px;
+    }
+
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 20px 30px;
+    position: relative;
+    background: url('../assets/home/bg.jpg') no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
