@@ -46,6 +46,24 @@ public class CourseVo {
     @Expose
     private Boolean isView;
 
+    /**
+     * 视频地址
+     */
+    @Expose
+    private String videoUrl;
+
+    /**
+     * 图片链接
+     */
+    @Expose
+    private String imageUrls;
+
+    /**
+     * 授课人
+     */
+    @Expose
+    private String teacher;
+
     public String getId() {
         return this.id;
     }
@@ -92,6 +110,30 @@ public class CourseVo {
 
     public void setIsView(Boolean view) {
         this.isView = view;
+    }
+
+    public String getVideoUrl() {
+        return this.videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
+    public String getImageUrls() {
+        return this.imageUrls;
+    }
+
+    public void setImageUrls(String imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+    public String getTeacher() {
+        return this.teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 
     public static CourseVo convert(Course course, Boolean isView) {

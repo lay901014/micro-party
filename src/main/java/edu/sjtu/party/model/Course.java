@@ -39,6 +39,23 @@ public class Course implements Serializable {
     private String pageContent;
 
     /**
+     * 视频地址
+     */
+    @Column(name = "video_url")
+    private String videoUrl;
+
+    /**
+     * 图片链接
+     */
+    @Column(name = "image_urls")
+    private String imageUrls;
+
+    /**
+     * 授课人
+     */
+    private String teacher;
+
+    /**
      * 是否有效
      */
     private Boolean enabled;
@@ -89,5 +106,29 @@ public class Course implements Serializable {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getVideoUrl() {
+        return this.videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
+    public String getImageUrls() {
+        return this.imageUrls;
+    }
+
+    public void setImageUrls(String imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+    public String getTeacher() {
+        return this.teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 }
