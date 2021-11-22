@@ -4,7 +4,6 @@ const getters = {
     le1600: state => state.app.le1600,
     layoutLoaded: state => state.app.layoutLoaded,
     token: state => state.user.token,
-    account: state => state.user.account,
-    name: state => state.user.name,
+    account: state => state.user.account
 };
 export default getters;
