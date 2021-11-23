@@ -25,7 +25,7 @@
                 controls
                 width="100%"
             >
-                <source src="https://560-cn-east-2.cdn-vod.huaweicloud.com/asset/f48603771eb99feb290690ee85ace708/play_video/54623d7bfe627627f5b2251d0726fd22.mp4?auth_info=FvsesMHYGAMXI5oUu2EhuPFP0vTPac8vOTL9tnqe3jposgTfyZn7YKK4iBxclVpTVsKDr2YMQlChDg%2FiNLyKC%2Bz1xc%2FsT8CdbZw5pLn9FLo%3D.b9401c81b8e363108eefa75ca270289e" type="video/mp4">
+                <source src="http://10.119.2.216:8081/video1.mp4" type="video/mp4">
                 <div>您的浏览器不支持Video标签</div>
             </video>
             <div class="introduction">陈云先后是以毛泽东同志为核心的党的第一代中央领导集体、以邓小平同志为核心的党的第二代中央领导集体的重要成员，是改革开放初期中央决策层中起关键作用的人物，是中国社会主义经济建设的开创者和奠基人之一。中华人民共和国建立之初，我国国内的经济形势非常严峻，党和政府面临多方面的压力和挑战。陈云作为一位伟大的革命家，充分展现了他在“两白一黑”战役和“银元之战”中的果敢和智慧，保卫了上海，打赢了这场经济战，从而巩固了新生的政权。</div>

@@ -1,50 +1,96 @@
 <template>
     <div class="mobile-page">
-        <img src="../../assets/home/logo.png" class="logo">
-        <div style="min-height: 100%;padding-bottom: 80px;font-size: 0;background: #B00111;">
-            <img src="../../assets/course/map.png" class="map">
-            <!--<div style="position: absolute;top: 10%;right: 10%;">虹口区-姚志鹏-中国证券博物-从证券事业的兴衰看马克思主义的发展性</div>-->
-            <div style="position: absolute;top: 42.9%;right: 55.7%;" class="point"/>
+        <!--<img src="../../assets/home/logo.png" class="logo">-->
+        <img src="../../assets/home/emblem.png" class="emblem">
+        <div ref="mapWrapper" class="map-wrapper">
+            <!--<div ref="map" class="map-c">-->
+                <!--<img src="../../assets/course/map.png" class="map">-->
+                <!--&lt;!&ndash;<div>虹口区-1姚志鹏-中国证券博物-从证券事业的兴衰看马克思主义的发展性</div>&ndash;&gt;-->
+                <!--<div ref="point1" style="position: absolute;top: 43.3%;left: 58%;" class="point" />-->
 
-            <!--<div>静安区-李新亮-中共二大会址-党章诞生地话党章中的经济思想</div>-->
-            <div style="position: absolute;top: 44.5%;right: 61.4%;" class="point"/>
+                <!--&lt;!&ndash;<div>静安区-2李新亮-中共二大会址-党章诞生地话党章中的经济思想</div>&ndash;&gt;-->
+                <!--<div style="position: absolute;top: 45.2%;left: 54.4%;" class="point" />-->
 
-            <!--<div>黄浦区-沈全-上海市工人文化宫-匠心筑梦</div>-->
-            <div style="position: absolute;top: 46%;right: 57.3%;" class="point"/>
+                <!--&lt;!&ndash;<div>黄浦区-3沈全-上海市工人文化宫-匠心筑梦</div>&ndash;&gt;-->
+                <!--<div style="position: absolute;top: 47.2%;left: 56.8%;" class="point" />-->
 
-            <!--<div>黄浦区-王成峰-上海市总工会-在劳动模范风采中感悟人民群众的创造伟力</div>-->
-            <div style="position: absolute;top: 45.5%;right: 56%;" class="point"/>
+                <!--&lt;!&ndash;<div>黄浦区-4王成峰-上海市总工会-在劳动模范风采中感悟人民群众的创造伟力</div>&ndash;&gt;-->
+                <!--<div style="position: absolute;top: 46.5%;left: 58%;" class="point" />-->
 
-            <!--<div>静安区-施阳九-中共上海地下组织斗争史陈列馆-隐秘战线的无声较量</div>-->
-            <div style="position: absolute;top: 44.5%;right: 62.6%;" class="point"/>
+                <!--&lt;!&ndash;<div>静安区-5施阳九-中共上海地下组织斗争史陈列馆-隐秘战线的无声较量</div>&ndash;&gt;-->
+                <!--<div style="position: absolute;top: 45.2%;left: 53.6%;" class="point" />-->
 
-            <!--<div>虹口区-付清海-中共“四大”纪念馆-中共四大与早期合作社运动</div>-->
-            <div style="position: absolute;top: 41.5%;right: 57%;" class="point"/>
+                <!--&lt;!&ndash;<div>虹口区-6付清海-中共“四大”纪念馆-中共四大与早期合作社运动</div>&ndash;&gt;-->
+                <!--<div style="position: absolute;top: 41.6%;left: 57.2%;" class="point" />-->
 
-            <!--<div>黄浦区-张小红-银行博物馆-金融初心，人民本位</div>-->
+                <!--&lt;!&ndash;<div>黄浦区-7张小红-银行博物馆-金融初心，人民本位</div>&ndash;&gt;-->
 
-            <!--<div>青浦区-周敏晖-陈云纪念馆博物馆-统一财经，打赢经济战</div>-->
+                <!--<div>8李志刚-上海市银行博物馆-中国现代金融的起源与发展</div>-->
+                <!--<div>9周敏晖-陈云纪念馆博物馆-统一财经，打赢经济战</div>-->
+                <!--<div>10万嘉伟-税收的作用与改革</div>-->
+                <!--<div>11</div>-->
+                <!--<div>12王小平-中国金融中的红色基因</div>-->
+                <!--<div>13贺然</div>-->
+                <!--<div>14袁美琴、胡学庆、陈小愚</div>-->
+
+                <!--&lt;!&ndash;<div>青浦区-周敏晖-陈云纪念馆博物馆-统一财经，打赢经济战</div>&ndash;&gt;-->
+
+                <!--<div />-->
+            <!--</div>-->
+
+
+
+            <div ref="map" class="map-c">
+                <img src="../../assets/course/map.png" class="map">
+                <CoursePoint name="上海科技金融博物馆"/>
+            </div>
+
         </div>
 
-        <div style="text-align: center;margin-top: -80px;position: relative;z-index: 100;">
-            <div style="margin-bottom: 10px;color: #FFF;font-size: 15px;font-weight: 700;">
-                点击观看视频，开启您的寻访之旅
+        <div class="page-footer">
+            <div class="turn-bar">
+                <img src="../../assets/course/arrow.png" class="arrow">
+                <span>点击观看视频，开启您的寻访之旅</span>
+                <img src="../../assets/course/arrow.png" class="arrow arrow-right arrow-disabled">
             </div>
-            <div style="margin-bottom: 10px;position: relative;font-size: 0;">
-                <span style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: #B00111;font-size: 18px;font-weight: 700;">1 / 13</span>
+            <div class="progress-bar">
+                <span>{{ finished }} / {{ total }}</span>
                 <img src="../../assets/course/pagination.png" class="pagination">
             </div>
         </div>
-
-        <!--<div class="cell">-->
-            <!--<div>123456</div>-->
-        <!--</div>-->
     </div>
 </template>
 
 <script>
+    import CoursePoint from './CoursePoint';
     export default {
-        name: 'Index',
+        components: { CoursePoint },
+        data() {
+            return {
+                total: 0,
+                finished: 0,
+                titles: {
+                    '1': '从证券事业的兴衰看马克思主义的发展性'
+                }
+            };
+        },
+        mounted() {
+            const res = { 'errno': 0, 'error': 'success', 'total': 0, 'entities': [{ 'id': 'a18dc8a7-45ed-11ec-8f19-fa163e34a620', 'courseName': '从证券事业的兴衰看马克思主义的发展性', 'longitude': 123.4535340, 'latitude': 211.3243240, 'pageContent': '中国证券博物馆于2018年1月经中央编办批复成立，是我国证券行业唯一一家国家级博物馆。馆内藏品丰富，以改革开放以来证券期货业发展的当代藏品为主，见证了新中国证券市场的诞生、发育和成长。本片借助馆内藏品，透过证券业在中国沉沉浮浮的历史画卷，帮助大家一起来体会马克思主义理论的一个重要特征——马克思主义的发展性，以进一步坚定马克思主义的信仰。\n', 'isView': false }, { 'id': 'ad744b14-45ed-11ec-8f19-fa163e34a620', 'courseName': '党章诞生地话党章中的经济思想', 'longitude': 231.4353400, 'latitude': 213.4354330, 'pageContent': '目前，我国已成为世界第二大经济体，成为推动世界经济增长的主要动力源。党的经济纲领是党章核心内容的重要组成部分，体现了党的经济理念、理想与追求，中国共产党党章中的经济思想关系着中国现代化建设的成败。本课程就是在中国共产党第一个党章的诞生地——中共二大会址，跟大家一起分享从一大到十九大，历次党章中的主要的经济思想。进而，从党的非凡历程中，感悟到一代代共产党人的初心和使命。', 'isView': true }] };
+            const { errno, entities } = res;
+            if (errno === 0 && entities) {
+                this.total = entities.length;
+                let finished = 0;
+                entities.forEach(item => {
+                    if (item.isView) {
+                        finished += 1;
+                    }
+                });
+                this.finished = finished;
+            }
+
+            const mapWidth = this.$refs.mapWrapper.offsetWidth;
+            this.$refs.map.style.left = `${Math.ceil((mapWidth - 538) / 2)}px`;
+        }
     };
 </script>
 
@@ -62,12 +108,35 @@
         z-index: 100;
     }
 
-    .map {
+    .emblem {
+        width: 20%;
+        max-width: 100px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: 0.4;
+    }
+
+    .map-wrapper {
+        min-height: 100%;
+        padding-bottom: 80px;
+        font-size: 0;
+        background: #B00111;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .map-c {
         width: 538px;
         height: 583px;
         position: relative;
         top: 30px;
-        left: calc(-15% + 8px);
+    }
+
+    .map {
+        width: 538px;
+        height: 583px;
     }
 
     .pagination {
@@ -94,5 +163,56 @@
         height: 4px;
         background: #FFF;
         border-radius: 50%;
+    }
+
+    .arrow {
+        width: 18px;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .arrow-right {
+        transform: rotate(180deg);
+    }
+
+    .arrow-disabled {
+        cursor: not-allowed;
+        opacity: .4;
+    }
+
+    .page-footer {
+        margin-top: -80px;
+        position: relative;
+        z-index: 100;
+        text-align: center;
+    }
+
+    .turn-bar {
+        margin-bottom: 10px;
+        font-size: 15px;
+        color: #FFF;
+        font-weight: 700;
+
+        &>span {
+            padding: 0 4px;
+            position: relative;
+            top: 1px;
+        }
+    }
+
+    .progress-bar {
+        margin-bottom: 10px;
+        position: relative;
+        font-size: 0;
+
+        &>span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            color: #B00111;
+            font-weight: 700;
+        }
     }
 </style>

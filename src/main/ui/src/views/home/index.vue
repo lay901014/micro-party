@@ -21,7 +21,7 @@
 <script>
     export default {
         mounted() {
-            const { offsetWidth, offsetHeight } = document.body;
+            const { offsetHeight } = document.body;
             const style = window.getComputedStyle(this.$refs.wrapper);
             const wrapperWidth = style.width ? parseInt(style.width) : null;
             if (wrapperWidth && offsetHeight) {
