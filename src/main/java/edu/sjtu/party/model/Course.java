@@ -60,6 +60,17 @@ public class Course implements Serializable {
      */
     private Boolean enabled;
 
+    /**
+     * 地址
+     */
+    private String address;
+
+    /**
+     * 课程标记
+     */
+    @Column(name = "course_tag")
+    private String courseTag;
+
     public String getId() {
         return id;
     }
@@ -130,5 +141,21 @@ public class Course implements Serializable {
 
     public void setTeacher(String teacher) {
         this.teacher = teacher;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCourseTag() {
+        return this.courseTag;
+    }
+
+    public void setCourseTag(String courseTag) {
+        this.courseTag = courseTag;
     }
 }

@@ -64,6 +64,18 @@ public class CourseVo {
     @Expose
     private String teacher;
 
+    /**
+     * 地址
+     */
+    @Expose
+    private String address;
+
+    /**
+     * 课程标记
+     */
+    @Expose
+    private String courseTag;
+
     public String getId() {
         return this.id;
     }
@@ -134,6 +146,22 @@ public class CourseVo {
 
     public void setTeacher(String teacher) {
         this.teacher = teacher;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCourseTag() {
+        return this.courseTag;
+    }
+
+    public void setCourseTag(String courseTag) {
+        this.courseTag = courseTag;
     }
 
     public static CourseVo convert(Course course, Boolean isView) {
