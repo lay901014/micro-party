@@ -40,11 +40,12 @@
 
             <div ref="map" class="map-c">
                 <img src="../../assets/course/map.png" class="map">
-                <CoursePoint
+                <CourseItem
                     v-for="item of courseList"
                     :key="item.id"
                     :id="item.id"
                     :name="item.courseName"
+                    :finished="!!item.isView"
                     :class="item.className"
                 />
             </div>
@@ -53,9 +54,9 @@
 
         <div class="page-footer">
             <div class="turn-bar">
-                <img src="../../assets/course/arrow.png" class="arrow">
-                <span>点击观看视频，开启您的寻访之旅</span>
-                <img src="../../assets/course/arrow.png" class="arrow arrow-right arrow-disabled">
+                <!--<img src="../../assets/course/arrow.png" class="arrow">-->
+                <span>开启您的寻访之旅</span>
+                <!--<img src="../../assets/course/arrow.png" class="arrow arrow-right arrow-disabled">-->
             </div>
             <div class="progress-bar">
                 <span>{{ finished }} / {{ total }}</span>
@@ -66,9 +67,9 @@
 </template>
 
 <script>
-    import CoursePoint from './CoursePoint';
+    import CourseItem from './CourseItem';
     export default {
-        components: { CoursePoint },
+        components: { CourseItem },
         data() {
             return {
                 total: 0,
@@ -88,7 +89,8 @@
                     {
                         name: '匠心筑梦',
                         address: '上海市工人文化宫',
-                        className: 'course3'
+                        className: 'course3',
+                        isView: true
                     },
                     {
                         name: '在劳动模范风采中感悟人民群众的创造伟力',
@@ -137,15 +139,10 @@
                         className: 'course12'
                     },
                     {
-                        name: '从证券事业的兴衰看马克思主义的发展性',
-                        address: '',
-                        className: 'course13'
-                    },
-                    {
                         name: '坚守育人初心，传承师道使命',
                         // name: '坚守育人初心，传承师道使命-从教故事，育人情怀',
                         address: '',
-                        className: 'course14'
+                        className: 'course13'
                     }
                 ]
             };
@@ -318,8 +315,64 @@
         top: 154px;
         left: 122px;
     }
+
     .course2 {
-        top: 195px;
-        left: 216px;
+        top: 196px;
+        left: 218px;
+    }
+
+    .course3 {
+        top: 196px;
+        left: 124px;
+    }
+
+    .course4 {
+        top: 238px;
+        left: 144px;
+    }
+
+    .course5 {
+        top: 282px;
+        left: 100px;
+    }
+
+    .course6 {
+        top: 282px;
+        left: 260px;
+    }
+
+    .course7 {
+        top: 327px;
+        left: 100px;
+    }
+
+    .course8 {
+        top: 327px;
+        left: 260px;
+    }
+
+    .course9 {
+        top: 369px;
+        left: 94px;
+    }
+
+    .course10 {
+        top: 413px;
+        left: 140px;
+    }
+
+    .course11 {
+        top: 369px;
+        left: 262px;
+    }
+
+    .course12 {
+        top: 453px;
+        left: 96px;
+    }
+
+    .course13 {
+        top: 453px;
+        left: 250px;
     }
 </style>
