@@ -51,6 +51,10 @@
                 />
             </div>
             <CoursePoint
+                v-if="activeCourseId"
+                :id="activeCourse.id"
+                :name="activeCourse.courseName"
+                :finished="!!activeCourse.isView"
 
             />
         </div>
@@ -79,81 +83,90 @@
                 total: 0,
                 finished: 0,
                 courseList: [],
-                titles: [
-                    {
-                        name: '从证券事业的兴衰看马克思主义的发展性',
-                        address: '中国证券博物',
-                        className: 'course1'
-                    },
-                    {
-                        name: '党章诞生地话党章中的经济思想',
-                        address: '中共二大会址',
-                        className: 'course2'
-                    },
-                    {
-                        name: '匠心筑梦',
-                        address: '上海市工人文化宫',
-                        className: 'course3',
-                        isView: true
-                    },
-                    {
-                        name: '在劳动模范风采中感悟人民群众的创造伟力',
-                        address: '上海市总工会',
-                        className: 'course4'
-                    },
-                    {
-                        name: '隐蔽战线之无声较量',
-                        address: '中共上海地下组织斗争史陈列馆',
-                        className: 'course5'
-                    },
-                    {
-                        name: '中共四大与早期合作社运动',
-                        address: '中共“四大”纪念馆',
-                        className: 'course6'
-                    },
-                    {
-                        name: '金融初心，人民本位',
-                        address: '银行博物馆',
-                        className: 'course7'
-                    },
-                    {
-                        name: '中国现代金融的起源与发展',
-                        // name: '中国现代金融的起源与发展—上海市银行博物馆',
-                        address: '上海市银行博物馆',
-                        className: 'course8'
-                    },
-                    {
-                        name: '统一财经，打赢经济战',
-                        address: '陈云纪念馆博物馆',
-                        className: 'course9'
-                    },
-                    {
-                        name: '税收的作用与改革——以人民为中心视角',
-                        address: '国家税务总局12366上海（国际）纳税服务中心',
-                        className: 'course10'
-                    },
-                    {
-                        name: '初心与使命：上商往事之一',
-                        address: '上海商学院',
-                        className: 'course11'
-                    },
-                    {
-                        name: '中国金融的红色基因',
-                        address: '上海科技金融博物馆',
-                        className: 'course12'
-                    },
-                    {
-                        name: '坚守育人初心，传承师道使命',
-                        // name: '坚守育人初心，传承师道使命-从教故事，育人情怀',
-                        address: '',
-                        className: 'course13'
-                    }
-                ],
+                // titles: [
+                //     {
+                //         name: '从证券事业的兴衰看马克思主义的发展性',
+                //         address: '中国证券博物',
+                //         className: 'course1'
+                //     },
+                //     {
+                //         name: '党章诞生地话党章中的经济思想',
+                //         address: '中共二大会址',
+                //         className: 'course2'
+                //     },
+                //     {
+                //         name: '匠心筑梦',
+                //         address: '上海市工人文化宫',
+                //         className: 'course3',
+                //         isView: true
+                //     },
+                //     {
+                //         name: '在劳动模范风采中感悟人民群众的创造伟力',
+                //         address: '上海市总工会',
+                //         className: 'course4'
+                //     },
+                //     {
+                //         name: '隐蔽战线之无声较量',
+                //         address: '中共上海地下组织斗争史陈列馆',
+                //         className: 'course5'
+                //     },
+                //     {
+                //         name: '中共四大与早期合作社运动',
+                //         address: '中共“四大”纪念馆',
+                //         className: 'course6'
+                //     },
+                //     {
+                //         name: '金融初心，人民本位',
+                //         address: '银行博物馆',
+                //         className: 'course7'
+                //     },
+                //     {
+                //         name: '中国现代金融的起源与发展',
+                //         // name: '中国现代金融的起源与发展—上海市银行博物馆',
+                //         address: '上海市银行博物馆',
+                //         className: 'course8'
+                //     },
+                //     {
+                //         name: '统一财经，打赢经济战',
+                //         address: '陈云纪念馆博物馆',
+                //         className: 'course9'
+                //     },
+                //     {
+                //         name: '税收的作用与改革——以人民为中心视角',
+                //         address: '国家税务总局12366上海（国际）纳税服务中心',
+                //         className: 'course10'
+                //     },
+                //     {
+                //         name: '初心与使命：上商往事之一',
+                //         address: '上海商学院',
+                //         className: 'course11'
+                //     },
+                //     {
+                //         name: '中国金融的红色基因',
+                //         address: '上海科技金融博物馆',
+                //         className: 'course12'
+                //     },
+                //     {
+                //         name: '坚守育人初心，传承师道使命',
+                //         // name: '坚守育人初心，传承师道使命-从教故事，育人情怀',
+                //         address: '',
+                //         className: 'course13'
+                //     }
+                // ],
                 activeCourseId: null
             };
         },
         computed: {
-            activeCourse() {}
+            activeCourse() {
+                let result = {};
+                for (const item of this.courseList) {
+                    if (item.id === this.activeCourseId) {
+                        result = item;
+                        break;
+                    }
+                }
+                return result;
+            }
         },
         mounted() {
             const res = {

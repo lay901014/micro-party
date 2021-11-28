@@ -1,6 +1,6 @@
 <template>
-    <div class="map-course-item" @click="handleStart">
-        <div class="course-name">
+    <div class="course-item-point" @click="handleStart">
+        <div class="course-item-name">
             <img v-if="finished" src="../../assets/course/finished.png">
             <img v-else src="../../assets/course/play.png">
             <span>{{ name }}</span>
@@ -47,12 +47,12 @@
 </script>
 
 <style scoped lang="scss">
-    .map-course-item {
+    .course-item-point {
         position: absolute;
         cursor: pointer;
-        white-space: nowrap;
+        z-index: 1000;
     }
-    .course-name {
+    .course-item-name {
         font-size: 11px;
         color: #FFF;
         padding: 4px 8px;

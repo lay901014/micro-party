@@ -1,5 +1,5 @@
 <template>
-    <div class="map-course-item" @click="handleStart">
+    <div class="map-course-item" @click="handleClick">
         <div class="course-name">
             <img v-if="finished" src="../../assets/course/finished.png">
             <img v-else src="../../assets/course/play.png">
@@ -34,7 +34,7 @@
             }
         },
         methods: {
-            handleStart() {
+            handleClick() {
                 const elements = document.getElementsByClassName('map-course-item');
                 const length = elements.length;
                 for (var i = 0; i< length; i++) {
@@ -48,6 +48,7 @@
                 this.$emit('update:activeId', this.id)
             },
             hideMark(e) {
+                this.$emit('update:activeId', null);
                 e.target.className += ' fade-out';
                 e.target.removeEventListener('click', this.hideMark);
                 setTimeout(function() {
@@ -97,39 +98,6 @@
             position: relative;
         }
 
-    }
-    .triangle {
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-color: rgba(176, 1, 17, .3) transparent transparent;
-        position: relative;
-    }
-    .lt10 {
-        /*border-width: 8px 50px 8px 50px;*/
-        margin: 0 auto;
-    }
-    .lg10 {
-        /*border-width: 8px 100px 8px 50px;*/
-        left: 14px;
-    }
-    .point {
-        width: 8px;
-        height: 8px;
-        background: rgba(176, 1, 17, .4);
-        border-radius: 50%;
-        position: absolute;
-        left: -4px;
-        bottom: -4px;
-    }
-    .solid-point {
-        width: 4px;
-        height: 4px;
-        position: relative;
-        top: 2px;
-        left: 2px;
-        border-radius: 50%;
-        background: rgb(176, 1, 17);
     }
 
     .fade-out {
