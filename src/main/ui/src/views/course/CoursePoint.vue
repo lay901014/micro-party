@@ -5,11 +5,11 @@
             <img v-else src="../../assets/course/play.png">
             <span>{{ name }}</span>
         </div>
-        <!--<div :class="['triangle', name.length > 10 ? 'lg10' : 'lt10']" :style="{ borderWidth: activeBorderWidth }">-->
-            <!--<div class="point">-->
-                <!--<div class="solid-point" />-->
-            <!--</div>-->
-        <!--</div>-->
+        <div :class="['triangle', name.length > 10 ? 'lg10' : 'lt10']" :style="{ borderWidth: activeBorderWidth }">
+            <div class="point">
+                <div class="solid-point" />
+            </div>
+        </div>
     </div>
 </template>
 
@@ -40,55 +40,7 @@
         },
         methods: {
             handleStart() {
-                // this.$router.push(`/ui/course/${this.id}`)
-                const elements = document.getElementsByClassName('map-course-item');
-                const length = elements.length;
-                // for (var i = 0; i< length; i++) {
-                //     if (elements[i].className.indexOf('fade-in') > -1) {
-                //         elements[i].className = elements[i].className.replace('fade-in', 'fade-out')
-                //     } else {
-                //         elements[i].className += ' fade-out'
-                //     }
-                // }
-                for (var i = 0; i< length; i++) {
-                    if (elements[i].className.indexOf('right-in') > -1) {
-                        elements[i].className = elements[i].className.replace('right-in', 'right-out')
-                    } else {
-                        elements[i].className += ' right-out'
-                    }
-                }
-                this.createMark();
-            },
-            hideMark(e) {
-                e.target.className += ' fade-out';
-                e.target.removeEventListener('click', this.hideMark);
-                setTimeout(function() {
-                    e.target.remove();
-                }, 100)
-                const elements = document.getElementsByClassName('map-course-item');
-                const length = elements.length;
-                // for (var i = 0; i< length; i++) {
-                //     if (elements[i].className.indexOf('fade-out') > -1) {
-                //         elements[i].className = elements[i].className.replace('fade-out', 'fade-in')
-                //         elements[i].className = elements[i].className.replace('right-out', 'right-in')
-                //     } else {
-                //         elements[i].className += ' fade-in'
-                //         elements[i].className += ' right-in'
-                //     }
-                // }
-                for (var i = 0; i< length; i++) {
-                    if (elements[i].className.indexOf('right-out') > -1) {
-                        elements[i].className = elements[i].className.replace('right-out', 'right-in')
-                    } else {
-                        elements[i].className += ' right-in'
-                    }
-                }
-            },
-            createMark() {
-                const mark = document.createElement('div');
-                mark.className = 'mark';
-                mark.addEventListener('click', this.hideMark)
-                document.body.appendChild(mark);
+                this.$router.push(`/ui/course/${this.id}`)
             }
         }
     };
@@ -127,11 +79,9 @@
         position: relative;
     }
     .lt10 {
-        /*border-width: 8px 50px 8px 50px;*/
         margin: 0 auto;
     }
     .lg10 {
-        /*border-width: 8px 100px 8px 50px;*/
         left: 14px;
     }
     .point {
@@ -151,65 +101,5 @@
         left: 2px;
         border-radius: 50%;
         background: rgb(176, 1, 17);
-    }
-
-    .fade-out {
-        animation: fade_out 0.8s 1;
-        animation-fill-mode: forwards;
-    }
-
-    .fade-in {
-        animation: fade_in 0.8s 1;
-        animation-fill-mode: forwards;
-        animation-fill-mode: both;
-    }
-
-    @keyframes fade_out {
-
-        0% {
-            opacity: 1;
-        }
-
-        100% {
-            height: 0;
-            opacity: 0;
-            visibility: hidden;
-            display: none;
-        }
-    }
-
-    @keyframes fade_in {
-
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    .right-out {
-        animation: right_out 0.7s 1;
-        animation-fill-mode: forwards;
-    }
-
-    @keyframes right_out {
-        /*0% {*/
-            /*left: inherit;*/
-        /*}*/
-        100% {
-            left: 700px;
-        }
-    }
-
-    .right-in {
-        animation: right_in 0.7s 1;
-        animation-fill-mode: forwards;
-    }
-    @keyframes right_in {
-        0% {
-            left: 700px;
-        }
     }
 </style>

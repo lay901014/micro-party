@@ -5,11 +5,6 @@
             <img v-else src="../../assets/course/play.png">
             <span>{{ name }}</span>
         </div>
-        <!--<div :class="['triangle', name.length > 10 ? 'lg10' : 'lt10']" :style="{ borderWidth: activeBorderWidth }">-->
-            <!--<div class="point">-->
-                <!--<div class="solid-point" />-->
-            <!--</div>-->
-        <!--</div>-->
     </div>
 </template>
 
@@ -40,16 +35,8 @@
         },
         methods: {
             handleStart() {
-                // this.$router.push(`/ui/course/${this.id}`)
                 const elements = document.getElementsByClassName('map-course-item');
                 const length = elements.length;
-                // for (var i = 0; i< length; i++) {
-                //     if (elements[i].className.indexOf('fade-in') > -1) {
-                //         elements[i].className = elements[i].className.replace('fade-in', 'fade-out')
-                //     } else {
-                //         elements[i].className += ' fade-out'
-                //     }
-                // }
                 for (var i = 0; i< length; i++) {
                     if (elements[i].className.indexOf('right-in') > -1) {
                         elements[i].className = elements[i].className.replace('right-in', 'right-out')
@@ -58,6 +45,7 @@
                     }
                 }
                 this.createMark();
+                this.$emit('update:activeId', this.id)
             },
             hideMark(e) {
                 e.target.className += ' fade-out';
@@ -67,15 +55,6 @@
                 }, 100)
                 const elements = document.getElementsByClassName('map-course-item');
                 const length = elements.length;
-                // for (var i = 0; i< length; i++) {
-                //     if (elements[i].className.indexOf('fade-out') > -1) {
-                //         elements[i].className = elements[i].className.replace('fade-out', 'fade-in')
-                //         elements[i].className = elements[i].className.replace('right-out', 'right-in')
-                //     } else {
-                //         elements[i].className += ' fade-in'
-                //         elements[i].className += ' right-in'
-                //     }
-                // }
                 for (var i = 0; i< length; i++) {
                     if (elements[i].className.indexOf('right-out') > -1) {
                         elements[i].className = elements[i].className.replace('right-out', 'right-in')
