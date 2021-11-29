@@ -184,7 +184,9 @@
             }
         },
         mounted() {
-            this.$store.dispatch('course/getCourses');
+            if (!this.courseList || this.courseList.length === 0) {
+                this.$store.dispatch('course/getCourses');
+            }
             const mapWidth = this.$refs.mapWrapper.offsetWidth;
             this.$refs.map.style.left = `${Math.ceil((mapWidth - 538) / 2)}px`;
         },
