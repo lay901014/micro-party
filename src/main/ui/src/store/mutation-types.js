@@ -9,10 +9,6 @@ export const PERMISSION = {
     SET_RIGHTS: 'setRouteRights'
 };
 
-export const SETTINGS = {
-    CHANGE_SETTING: 'changeSetting'
-};
-
 export const USER = {
     SET_TOKEN: 'setToken',
     SET_ACCOUNT: 'setAccount',
@@ -20,14 +16,6 @@ export const USER = {
     SET_PAGE_RIGHTS: 'setPageRights',
 };
 
-export const BASIC = {
-    SET_INSPECTED_BATCHES: 'setInspectedBatches',
-    SET_INSPECTED_UNITS: 'setInspectedUnits',
-    SET_INSPECTINDICATOR: 'setInspectindicator',
-    SET_TOPIC_TYPES: 'setTopicTypes',
-    SET_SYSTEM_ROLES: 'setSystemRoles',
-    SET_MEMBER_TYPES: 'setMemberTypes',
-    SET_TITLE_TYPES: 'setTitleTypes',
-    SET_YXDM: 'setYxdm',
-    SET_ARCHIVE_FILE_TYPES: 'setArchiveFileTypes'
-};
+export const COURSE = {
+    SET_COURSE_LIST: 'setCourseList'
+}

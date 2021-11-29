@@ -5,5 +5,6 @@ const getters = {
     layoutLoaded: state => state.app.layoutLoaded,
     token: state => state.user.token,
     account: state => state.user.account,
+    courseList: state => state.course.list
 };
 export default getters;

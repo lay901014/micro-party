@@ -35,7 +35,14 @@
 
             <!--&lt;!&ndash;<div>青浦区-周敏晖-陈云纪念馆博物馆-统一财经，打赢经济战</div>&ndash;&gt;-->
 
-            <!--<div />-->
+                <!--<CoursePoint-->
+                <!--v-if="activeCourseId"-->
+                <!--:id="activeCourse.id"-->
+                <!--:name="activeCourse.courseName"-->
+                <!--:address="activeCourse.address"-->
+                <!--:finished="!!activeCourse.isView"-->
+                <!--:class="`${activeCourse.courseTag ? `point${activeCourse.courseTag.replace(/\D/g, '')}` : ''}`"-->
+                <!--/>-->
             <!--</div>-->
 
             <div ref="map" class="map-c">
@@ -49,14 +56,15 @@
                     :class="item.courseTag"
                     :active-id.sync="activeCourseId"
                 />
+                <CoursePoint
+                    v-show="activeCourseId"
+                    :id="activeCourse.id"
+                    :name="activeCourse.courseName"
+                    :address="activeCourse.address"
+                    :finished="!!activeCourse.isView"
+                    :class="classArray"
+                />
             </div>
-            <CoursePoint
-                v-if="activeCourseId"
-                :id="activeCourse.id"
-                :name="activeCourse.courseName"
-                :finished="!!activeCourse.isView"
-
-            />
         </div>
 
         <div class="page-footer">
@@ -74,6 +82,7 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
     import CourseItem from './CourseItem';
     import CoursePoint from './CoursePoint';
     export default {
@@ -82,7 +91,6 @@
             return {
                 total: 0,
                 finished: 0,
-                courseList: [],
                 // titles: [
                 //     {
                 //         name: '从证券事业的兴衰看马克思主义的发展性',
@@ -157,6 +165,7 @@
             };
         },
         computed: {
+            ...mapGetters(['courseList']),
             activeCourse() {
                 let result = {};
                 for (const item of this.courseList) {
@@ -166,49 +175,35 @@
                     }
                 }
                 return result;
+            },
+            classArray() {
+                return [
+                    this.activeCourse.courseTag ? `point${this.activeCourse.courseTag.replace(/\D/g, '')}` : '',
+                    this.activeCourseId ? 'fade-in' : 'fade-out'
+                ]
             }
         },
         mounted() {
-            const res = {
-                'errno': 0,
-                'error': 'success',
-                'total': 0,
-                'entities': [
-                    {
-                        'id': 'a18dc8a7-45ed-11ec-8f19-fa163e34a620',
-                        'courseName': '从证券事业的兴衰看马克思主义的发展性',
-                        'longitude': 123.4535340,
-                        'latitude': 211.3243240,
-                        'pageContent': '中国证券博物馆于2018年1月经中央编办批复成立，是我国证券行业唯一一家国家级博物馆。馆内藏品丰富，以改革开放以来证券期货业发展的当代藏品为主，见证了新中国证券市场的诞生、发育和成长。本片借助馆内藏品，透过证券业在中国沉沉浮浮的历史画卷，帮助大家一起来体会马克思主义理论的一个重要特征——马克思主义的发展性，以进一步坚定马克思主义的信仰。\n',
-                        'isView': false,
-                        'courseTag': 'course1'
-                    },
-                    {
-                        'id': 'ad744b14-45ed-11ec-8f19-fa163e34a620',
-                        'courseName': '党章诞生地话党章中的经济思想',
-                        'longitude': 231.4353400,
-                        'latitude': 213.4354330,
-                        'pageContent': '目前，我国已成为世界第二大经济体，成为推动世界经济增长的主要动力源。党的经济纲领是党章核心内容的重要组成部分，体现了党的经济理念、理想与追求，中国共产党党章中的经济思想关系着中国现代化建设的成败。本课程就是在中国共产党第一个党章的诞生地——中共二大会址，跟大家一起分享从一大到十九大，历次党章中的主要的经济思想。进而，从党的非凡历程中，感悟到一代代共产党人的初心和使命。',
-                        'isView': true,
-                        'courseTag': 'course2'
-                    }
-                ]
-            };
-            const { errno, entities } = res;
-            if (errno === 0 && entities) {
-                this.total = entities.length;
-                let finished = 0;
-                entities.forEach(item => {
-                    if (item.isView) {
-                        finished += 1;
-                    }
-                });
-                this.finished = finished;
-                this.courseList = entities;
-            }
-
+            this.$store.dispatch('course/getCourses');
             const mapWidth = this.$refs.mapWrapper.offsetWidth;
             this.$refs.map.style.left = `${Math.ceil((mapWidth - 538) / 2)}px`;
+        },
+        watch: {
+            courseList: {
+                handler(c) {
+                    if (c) {
+                        this.total = c.length;
+                        let finished = 0;
+                        c.forEach(item => {
+                            if (item.isView) {
+                                finished += 1;
+                            }
+                        });
+                        this.finished = finished;
+                    }
+                },
+                deep: true
+            }
         }
     };
 </script>
@@ -276,6 +271,14 @@
         border-radius: 20px;
 
     }
+
+    /*.point {*/
+        /*width: 4px;*/
+        /*height: 4px;*/
+        /*border-radius: 50%;*/
+        /*background: #FFF;*/
+        /*z-index: 50000;*/
+    /*}*/
 
     .arrow {
         width: 18px;
@@ -391,5 +394,41 @@
     .course13 {
         top: 453px;
         left: 250px;
+    }
+
+    .fade-out {
+        animation: fade_out 2s 1;
+        animation-fill-mode: forwards;
+    }
+
+    .fade-in {
+        animation: fade_in 2s 1;
+        animation-fill-mode: forwards;
+        animation-fill-mode: both;
+    }
+
+    @keyframes fade_out {
+
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            height: 0;
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    @keyframes fade_in {
+
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 </style>
