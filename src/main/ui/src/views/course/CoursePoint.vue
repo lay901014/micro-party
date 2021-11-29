@@ -1,11 +1,15 @@
 <template>
     <div class="course-item-point" @click="handleStart">
         <div class="course-item-name">
-            <img v-if="finished" src="../../assets/course/finished.png">
-            <img v-else src="../../assets/course/play.png">
-            <span>{{ name }}</span>
+            <div>
+                <img v-if="finished" src="../../assets/course/finished.png">
+                <img v-else src="../../assets/course/play.png">
+                <span>{{ name }}</span>
+            </div>
+            <div class="address">{{ address }}</div>
         </div>
-        <div :class="['triangle', name.length > 10 ? 'lg10' : 'lt10']" :style="{ borderWidth: activeBorderWidth }">
+        <!--<div :class="['triangle', name.length > 10 ? 'lg10' : 'lt10']" :style="{ borderWidth: activeBorderWidth }">-->
+        <div class="triangle">
             <div class="point">
                 <div class="solid-point" />
             </div>
@@ -28,15 +32,18 @@
             finished: {
                 type: Boolean,
                 required: true
+            },
+            address: {
+                type: String
             }
         },
         computed: {
-            activeBorderWidth() {
-                if (this.name.length < 11) {
-                    return `8px ${this.name.length * 6}px 8px ${this.name.length * 6}px`;
-                }
-                return `8px 100px 8px 50px`;
-            }
+            // activeBorderWidth() {
+            //     if (this.name.length < 11) {
+            //         return `8px ${this.name.length * 6}px 8px ${this.name.length * 6}px`;
+            //     }
+            //     return `8px 100px 8px 50px`;
+            // }
         },
         methods: {
             handleStart() {
@@ -53,13 +60,12 @@
         z-index: 1000;
     }
     .course-item-name {
-        font-size: 11px;
+        font-size: 14px;
         color: #FFF;
-        padding: 4px 8px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, .55), rgba(0, 0, 0, .85));
+        padding: 8px 10px;
+        background-image: linear-gradient(to right, rgb(49, 54, 61), rgb(5, 0, 0));
         border: 3px solid #E39821;
-        border-radius: 50px;
-        text-align: center;
+        border-radius: 20px;
 
         img {
             width: 16px;
@@ -70,24 +76,30 @@
             position: relative;
         }
 
+        .address {
+            padding: 6px 0 0 2px;
+            font-size: 12px;
+        }
+
     }
     .triangle {
         width: 0;
         height: 0;
         border-style: solid;
-        border-color: rgba(176, 1, 17, .3) transparent transparent;
+        border-color: rgba(0, 0, 0, .4) transparent transparent;
         position: relative;
-    }
-    .lt10 {
         margin: 0 auto;
     }
-    .lg10 {
-        left: 14px;
-    }
+    /*.lt10 {*/
+        /*margin: 0 auto;*/
+    /*}*/
+    /*.lg10 {*/
+        /*left: 14px;*/
+    /*}*/
     .point {
         width: 8px;
         height: 8px;
-        background: rgba(176, 1, 17, .4);
+        background: rgba(255, 255, 255, .7);
         border-radius: 50%;
         position: absolute;
         left: -4px;
@@ -101,5 +113,58 @@
         left: 2px;
         border-radius: 50%;
         background: rgb(176, 1, 17);
+    }
+    .point1 {
+        top: 185px;
+        right: 110px;
+
+        .triangle {
+            border-width: 10px 50px 10px 120px;
+        }
+    }
+
+    .point2 {
+        top: 196px;
+        right: 122px;
+
+        .triangle {
+            border-width: 10px 80px 10px 80px;
+        }
+    }
+
+    .point3 {
+        top: 208px;
+        right: 168px;
+
+        .triangle {
+            border-width: 10px 30px 10px 30px;
+        }
+    }
+
+    .point4 {
+        top: 204px;
+        right: 103px;
+
+        .triangle {
+            border-width: 10px 50px 10px 120px;
+        }
+    }
+
+    .point5 {
+        top: 196px;
+        right: 150px;
+
+        .triangle {
+            border-width: 10px 60px 10px 60px;
+        }
+    }
+
+    .point6 {
+        top: 175px;
+        right: 121px;
+
+        .triangle {
+            border-width: 10px 70px 10px 70px;
+        }
     }
 </style>
