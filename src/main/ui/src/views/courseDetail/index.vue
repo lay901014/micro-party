@@ -1,5 +1,5 @@
 <template>
-    <div style="padding-top: 36px;">
+    <div class="mobile-page" style="padding-top: 36px;">
         <div class="alert">
             <div>
                 <img src="../../assets/detail/warning.png">
@@ -102,9 +102,11 @@
     .alert {
         position: fixed;
         top: 0;
-        left: 0;
+        /*left: 0;*/
         width: 100%;
+        max-width: 640px;
         line-height: 36px;
+        margin: 0 auto;
         padding: 0 6px 0 16px;
         font-size: 14px;
         color: #FFF;
