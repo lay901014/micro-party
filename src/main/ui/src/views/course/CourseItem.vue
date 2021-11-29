@@ -25,12 +25,9 @@
                 required: true
             }
         },
-        computed: {
-            activeBorderWidth() {
-                if (this.name.length < 11) {
-                    return `8px ${this.name.length * 6}px 8px ${this.name.length * 6}px`;
-                }
-                return `8px 100px 8px 50px`;
+        data() {
+            return {
+                mark: null
             }
         },
         methods: {
@@ -51,6 +48,7 @@
                 this.$emit('update:activeId', null);
                 e.target.className += ' fade-out';
                 e.target.removeEventListener('click', this.hideMark);
+                this.mark = null;
                 setTimeout(function() {
                     e.target.remove();
                 }, 100)
@@ -65,10 +63,17 @@
                 }
             },
             createMark() {
-                const mark = document.createElement('div');
+                let mark = document.createElement('div');
                 mark.className = 'mark';
-                mark.addEventListener('click', this.hideMark)
-                document.body.appendChild(mark);
+                mark.addEventListener('click', this.hideMark);
+                this.mark = mark;
+                mark = null;
+                document.body.appendChild(this.mark);
+            }
+        },
+        beforeDestroy() {
+            if (this.mark) {
+                this.mark.remove();
             }
         }
     };
