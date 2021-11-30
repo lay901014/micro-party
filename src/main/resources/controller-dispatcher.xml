@@ -35,7 +35,6 @@
         </mvc:argument-resolvers>
     </mvc:annotation-driven>
 
-    <mvc:resources mapping="/**" location="/dist/" />
 
     <!-- 开启默认的Servlet处理 —— 自动处理图片/html等 -->
     <mvc:default-servlet-handler/>
@@ -60,7 +59,7 @@
     <!--HTML视图解析器 必须先配置freemarkerConfig,注意html是没有prefix前缀属性的-->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath">
-            <value>/dist/</value>
+            <value>/WEB-INF/ui/</value>
         </property>
         <property name="freemarkerSettings">
             <props>
