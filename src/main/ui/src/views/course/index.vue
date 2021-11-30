@@ -23,25 +23,41 @@
             <!--&lt;!&ndash;<div>虹口区-6付清海-中共“四大”纪念馆-中共四大与早期合作社运动</div>&ndash;&gt;-->
             <!--<div style="position: absolute;top: 41.6%;left: 57.2%;" class="point" />-->
 
-            <!--&lt;!&ndash;<div>黄浦区-7张小红-银行博物馆-金融初心，人民本位</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div>黄浦区-7张小红-上海市银行博物馆-金融初心，人民本位</div>&ndash;&gt;-->
+            <!--<div style="position: absolute;top: 46.5%;left: 57.5%;" class="point" />-->
 
-            <!--<div>8李志刚-上海市银行博物馆-中国现代金融的起源与发展</div>-->
-            <!--<div>9周敏晖-陈云纪念馆博物馆-统一财经，打赢经济战</div>-->
-            <!--<div>10万嘉伟-税收的作用与改革</div>-->
-            <!--<div>11</div>-->
-            <!--<div>12王小平-中国金融中的红色基因</div>-->
-            <!--<div>13贺然</div>-->
-            <!--<div>14袁美琴、胡学庆、陈小愚</div>-->
+            <!--<div>黄浦区-8李志刚-上海市银行博物馆-中国现代金融的起源与发展</div>-->
+                <!--7、8一致-->
+                <!--<div style="position: absolute;top: 46.5%;left: 57.5%;" class="point" />-->
+
+
+                <!--<div>青浦区-9周敏晖-陈云纪念馆博物馆-统一财经，打赢经济战</div>-->
+                <!--<div style="position: absolute;top: 64.5%;left: 17.5%;" class="point" />-->
+
+
+            <!--<div>黄浦区九江路47号-10万嘉伟-国家税务总局12366上海（国际）纳税服务中心-税收的作用与改革</div>-->
+                <!--<div style="position: absolute;top: 46.5%;left: 58%;" class="point" />-->
+
+                <!--<div>徐汇区-11李强-上海商学院-初心与使命：上商往事之一</div>-->
+                <!--<div style="position: absolute;top: 49.5%;left: 52.5%;" class="point" />-->
+
+
+                <!--<div>普陀区-12王小平-上海科技金融博物馆-中国金融中的红色基因</div>-->
+                <!--<div style="position: absolute;top: 44.7%;left: 49%;" class="point" />-->
+
+
+                <!--<div>徐汇区-13袁美琴、胡学庆、陈小愚-上海商学院-坚守育人初心，传承师道使命</div>-->
+                <!--<div style="position: absolute;top: 49.5%;left: 52.5%;" class="point" />-->
 
             <!--&lt;!&ndash;<div>青浦区-周敏晖-陈云纪念馆博物馆-统一财经，打赢经济战</div>&ndash;&gt;-->
 
                 <!--<CoursePoint-->
-                <!--v-if="activeCourseId"-->
+                <!--v-show="activeCourseId"-->
                 <!--:id="activeCourse.id"-->
                 <!--:name="activeCourse.courseName"-->
                 <!--:address="activeCourse.address"-->
                 <!--:finished="!!activeCourse.isView"-->
-                <!--:class="`${activeCourse.courseTag ? `point${activeCourse.courseTag.replace(/\D/g, '')}` : ''}`"-->
+                <!--:class="classArray"-->
                 <!--/>-->
             <!--</div>-->
 

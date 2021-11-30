@@ -167,4 +167,69 @@
             border-width: 10px 70px 10px 70px;
         }
     }
+
+    .point7 {
+        top: 204px;
+        right: 141px;
+
+        .triangle {
+            border-width: 10px 60px 10px 60px;
+        }
+    }
+
+    .point8 {
+        top: 204px;
+        right: 120px;
+
+        .triangle {
+            border-width: 10px 70px 10px 70px;
+        }
+    }
+
+    .point9 {
+        top: 302px;
+        right: 267px;
+
+        .triangle {
+            position: relative;
+            left: -10px;
+            border-width: 13px 130px 10px 2px;
+        }
+    }
+
+    .point10 {
+        top: 204px;
+        right: 123px;
+
+        .triangle {
+            border-width: 10px 50px 10px 120px;
+        }
+    }
+
+    .point11 {
+        top: 221px;
+        right: 147px;
+
+        .triangle {
+            border-width: 10px 70px 10px 70px;
+        }
+    }
+
+    .point12 {
+        top: 193px;
+        right: 179px;
+
+        .triangle {
+            border-width: 10px 60px 10px 60px;
+        }
+    }
+
+    .point13 {
+        top: 221px;
+        right: 140px;
+
+        .triangle {
+            border-width: 10px 70px 10px 70px;
+        }
+    }
 </style>
