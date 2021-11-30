@@ -45,4 +45,9 @@ public class UIController {
         resp.sendRedirect("/");
     }
 
+    @RequestMapping(value = "alive")
+    public String alive() {
+        return "alive";
+    }
+
 }
