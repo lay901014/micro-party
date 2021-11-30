@@ -151,8 +151,8 @@
     }
 
     .point5 {
-        top: 196px;
-        right: 150px;
+        top: 199px;
+        right: 152px;
 
         .triangle {
             border-width: 10px 60px 10px 60px;
@@ -198,8 +198,8 @@
     }
 
     .point10 {
-        top: 204px;
-        right: 123px;
+        top: 208px;
+        right: 120px;
 
         .triangle {
             border-width: 10px 50px 10px 120px;
