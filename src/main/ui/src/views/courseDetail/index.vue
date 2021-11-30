@@ -29,6 +29,13 @@
                 <div>您的浏览器不支持Video标签</div>
             </video>
             <div class="introduction">{{ activeCourse.pageContent}}</div>
+            <div v-if="activeCourse.imageUrls" class="img-c">
+                <img
+                    v-for="(item, i) of activeCourse.imageUrls.split(';')"
+                    :key="i"
+                    :src="item"
+                >
+            </div>
         </div>
     </div>
 </template>
@@ -144,6 +151,16 @@
         margin-top: 10px;
         text-indent: 34px;
         text-align: justify;
+    }
+
+    .img-c {
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            margin-top: 10px;
+        }
+
     }
 
 </style>
