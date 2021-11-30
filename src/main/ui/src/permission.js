@@ -2,22 +2,22 @@ import router from './router';
 import store from './store';
 import NProgress from 'nprogress'; // progress bar
 import 'nprogress/nprogress.css'; // progress bar style
-import getPageTitle from '@/utils/get-page-title';
+// import getPageTitle from '@/utils/get-page-title';
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
 router.beforeEach(async(to, from, next) => {
     // start progress bar
     NProgress.start();
-    document.title = getPageTitle(to.meta.title);
+    // document.title = getPageTitle(to.meta.title);
 
-    if (store.getters.account !== '') {
+    if ((store.getters.courseList && store.getters.courseList.length > 0) || !to.meta || (to.meta && !to.meta.courseList)) {
         next();
     } else {
         try {
             // get user info
             // note: rights must be a object array! such as: ['admin'] or ,['developer','editor']
-            await store.dispatch('user/getInfo');
+            await store.dispatch('course/getCourses');
             // generate accessible routes map based on rights
             // const accessRoutes = await store.dispatch('permission/generateRoutes', pageRights);
             // router.addRoutes(accessRoutes);

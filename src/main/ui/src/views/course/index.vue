@@ -110,7 +110,7 @@
                 // titles: [
                 //     {
                 //         name: '从证券事业的兴衰看马克思主义的发展性',
-                //         address: '中国证券博物',
+                //         address: '中国证券博物馆',
                 //         className: 'course1'
                 //     },
                 //     {
@@ -220,7 +220,8 @@
                         this.finished = finished;
                     }
                 },
-                deep: true
+                deep: true,
+                immediate: true
             }
         }
     };

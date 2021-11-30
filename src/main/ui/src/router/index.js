@@ -44,14 +44,6 @@ export const constantRoutes = [
     },
     userRouter,
     {
-        name: 'test',
-        path: '/ui/test',
-        component: () => import(/* webpackChunkName: "user" */'@/views/test'),
-        meta: {
-            title: '红色商博微党课',
-        }
-    },
-    {
         path: `${baseRoute}/404`,
         component: () => import(/* webpackChunkName: "404" */'@/views/404'),
         hidden: true
