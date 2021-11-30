@@ -25,7 +25,8 @@ const userRouter = {
             path: 'course',
             component: () => import(/* webpackChunkName: "user" */'@/views/course'),
             meta: {
-                title: '红色商博微党课'
+                title: '红色商博微党课',
+                courseList: true
             }
         },
         {
@@ -33,7 +34,8 @@ const userRouter = {
             path: 'course/:id',
             component: () => import(/* webpackChunkName: "user" */'@/views/courseDetail'),
             meta: {
-                title: '红色商博微党课'
+                title: '红色商博微党课',
+                courseList: true
             }
         }
     ]
