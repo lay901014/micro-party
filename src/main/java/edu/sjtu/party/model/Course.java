@@ -71,6 +71,11 @@ public class Course implements Serializable {
     @Column(name = "course_tag")
     private String courseTag;
 
+    /**
+     * 学院
+     */
+    private String college;
+
     public String getId() {
         return id;
     }
@@ -157,5 +162,13 @@ public class Course implements Serializable {
 
     public void setCourseTag(String courseTag) {
         this.courseTag = courseTag;
+    }
+
+    public String getCollege() {
+        return this.college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
     }
 }

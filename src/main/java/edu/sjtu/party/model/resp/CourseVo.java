@@ -76,6 +76,12 @@ public class CourseVo {
     @Expose
     private String courseTag;
 
+    /**
+     * 学院
+     */
+    @Expose
+    private String college;
+
     public String getId() {
         return this.id;
     }
@@ -162,6 +168,14 @@ public class CourseVo {
 
     public void setCourseTag(String courseTag) {
         this.courseTag = courseTag;
+    }
+
+    public String getCollege() {
+        return this.college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
     }
 
     public static CourseVo convert(Course course, Boolean isView) {
