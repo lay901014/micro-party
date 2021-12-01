@@ -1,10 +1,8 @@
 <template>
-    <div class="mobile-page" style="padding-top: 36px;">
-        <div class="alert">
-            <div>
-                <img src="../../assets/detail/warning.png">
-                <span>课程播放1分钟，记录为完成寻访展馆</span>
-            </div>
+    <div class="mobile-page">
+        <div v-if="!activeCourse.isView && second < 30" class="alert fade-away">
+            <img src="../../assets/detail/warning.png">
+            <span>课程播放1分钟，记录为完成寻访展馆</span>
         </div>
         <div style="padding: 16px 12px;">
             <div style="font-size: 18px;font-weight: 700;"><span>【红色商博之旅】{{ activeCourse.courseName }}</span></div>
@@ -47,7 +45,9 @@
         data() {
             return {
                 time: 0,
-                playTimer: null
+                playTimer: null,
+                second: 0,
+                secondTimer: null
             };
         },
         mounted() {
@@ -56,9 +56,26 @@
                 this.$refs.video.addEventListener('playing', this.playEvent);
                 this.$refs.video.addEventListener('waiting', this.clearPlayInterval);
                 this.$refs.video.addEventListener('pause', this.clearPlayInterval);
+                this.stopwatch();
             }
         },
+        beforeDestroy() {
+            this.clearPlayInterval();
+            this.clearStopwatch();
+        },
         methods: {
+            clearStopwatch() {
+                clearInterval(this.secondTimer);
+                this.secondTimer = null;
+            },
+            stopwatch() {
+                this.secondTimer = setInterval(() => {
+                    this.second += 1;
+                    if (this.second >= 30) {
+                        this.clearStopwatch();
+                    }
+                }, 1000)
+            },
             playEvent(e) {
                 if (this.playTimer) {
                     this.clearPlayInterval();
@@ -107,18 +124,13 @@
 
 <style scoped lang="scss">
     .alert {
-        position: fixed;
-        top: 0;
-        /*left: 0;*/
         width: 100%;
-        max-width: 640px;
         line-height: 36px;
         margin: 0 auto;
         padding: 0 6px 0 16px;
         font-size: 14px;
         color: #FFF;
         background: #F55F00;
-        z-index: 50;
 
         &>div {
             background: url('../../assets/detail/emblem.png') no-repeat right center;
@@ -159,6 +171,24 @@
         img {
             max-width: 100%;
             margin-top: 10px;
+        }
+
+    }
+
+    .fade-away {
+        overflow-y: hidden;
+        animation: fade_away 30s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fade_away {
+
+        97% {
+            height: 36px;
+        }
+
+        100% {
+            height: 0px;
         }
 
     }
