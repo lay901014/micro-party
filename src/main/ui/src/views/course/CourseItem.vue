@@ -114,7 +114,6 @@
     .fade-in {
         animation: fade_in 0.8s 1;
         animation-fill-mode: forwards;
-        animation-fill-mode: both;
     }
 
     @keyframes fade_out {

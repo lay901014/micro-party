@@ -1,12 +1,15 @@
 <template>
     <div class="course-item-point" @click="handleStart">
         <div class="course-item-name">
-            <div>
+            <div style="display: flex;align-items: center;">
                 <img v-if="finished" src="../../assets/course/finished.png">
                 <img v-else src="../../assets/course/play.png">
-                <span>{{ name }}</span>
+                <div style="flex: 1;word-break: break-all;padding-left: 2px;">{{ name }}</div>
             </div>
-            <div class="address">{{ address }}</div>
+            <div class="address" style="display: flex;align-items: center;">
+                <img src="../../assets/detail/coordinate.png">
+                <span style="flex: 1;word-break: break-all;padding-left: 2px;">{{ address }}</span>
+            </div>
         </div>
         <!--<div :class="['triangle', name.length > 10 ? 'lg10' : 'lt10']" :style="{ borderWidth: activeBorderWidth }">-->
         <div class="triangle">
@@ -77,8 +80,18 @@
         }
 
         .address {
-            padding: 6px 0 0 2px;
+            padding-top: 8px;
             font-size: 12px;
+
+            img {
+                width: 16px;
+                vertical-align: middle;
+            }
+
+            span {
+                position: relative;
+                top: 1px;
+            }
         }
 
     }
@@ -115,17 +128,17 @@
         background: rgb(176, 1, 17);
     }
     .point1 {
-        top: 185px;
-        right: 110px;
+        right: 132px;
+        bottom: 319px;
 
         .triangle {
-            border-width: 10px 50px 10px 120px;
+            border-width: 10px 60px 10px 60px;
         }
     }
 
     .point2 {
-        top: 196px;
-        right: 122px;
+        right: 123px;
+        bottom: 307px;
 
         .triangle {
             border-width: 10px 80px 10px 80px;
@@ -133,17 +146,17 @@
     }
 
     .point3 {
-        top: 208px;
-        right: 168px;
+        right: 178px;
+        bottom: 296px;
 
         .triangle {
-            border-width: 10px 30px 10px 30px;
+            border-width: 10px 32px 10px 32px;
         }
     }
 
     .point4 {
-        top: 204px;
-        right: 103px;
+        right: 104px;
+        bottom: 300px;
 
         .triangle {
             border-width: 10px 50px 10px 120px;
@@ -151,8 +164,8 @@
     }
 
     .point5 {
-        top: 199px;
-        right: 152px;
+        right: 142px;
+        bottom: 307px;
 
         .triangle {
             border-width: 10px 60px 10px 60px;
@@ -160,8 +173,8 @@
     }
 
     .point6 {
-        top: 175px;
-        right: 121px;
+        right: 122px;
+        bottom: 328px;
 
         .triangle {
             border-width: 10px 70px 10px 70px;
@@ -169,8 +182,8 @@
     }
 
     .point7 {
-        top: 204px;
-        right: 141px;
+        right: 142px;
+        bottom: 300px;
 
         .triangle {
             border-width: 10px 60px 10px 60px;
@@ -178,8 +191,7 @@
     }
 
     .point8 {
-        top: 204px;
-        right: 120px;
+        right: 121px;
 
         .triangle {
             border-width: 10px 70px 10px 70px;
@@ -187,8 +199,8 @@
     }
 
     .point9 {
-        top: 302px;
-        right: 267px;
+        right: 270px;
+        bottom: 196px;
 
         .triangle {
             position: relative;
@@ -198,8 +210,8 @@
     }
 
     .point10 {
-        top: 208px;
-        right: 120px;
+        right: 115px;
+        bottom: 300px;
 
         .triangle {
             border-width: 10px 50px 10px 120px;
@@ -207,8 +219,8 @@
     }
 
     .point11 {
-        top: 221px;
-        right: 147px;
+        right: 148px;
+        bottom: 282px;
 
         .triangle {
             border-width: 10px 70px 10px 70px;
@@ -216,8 +228,8 @@
     }
 
     .point12 {
-        top: 193px;
-        right: 179px;
+        right: 187px;
+        bottom: 310px;
 
         .triangle {
             border-width: 10px 60px 10px 60px;
@@ -225,11 +237,20 @@
     }
 
     .point13 {
-        top: 221px;
-        right: 140px;
+        right: 65px;
+        bottom: 342px;
 
         .triangle {
-            border-width: 10px 70px 10px 70px;
+            border-width: 10px 110px 10px 210px;
+        }
+    }
+
+    .point14 {
+        right: 85px;
+        bottom: 163px;
+
+        .triangle {
+            border-width: 10px 100px 10px 150px;
         }
     }
 </style>

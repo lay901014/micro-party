@@ -45,19 +45,22 @@
                 <!--<div>普陀区-12王小平-上海科技金融博物馆-中国金融中的红色基因</div>-->
                 <!--<div style="position: absolute;top: 44.7%;left: 49%;" class="point" />-->
 
+                <!--<div>杨浦区-13贺然-上海财经大学商学博物馆保险馆-从上海最早的红色保险组织—“保联”的故事看党的群众路线</div>-->
+                <!--<div style="position: absolute;top: 39.3%;left: 59.2%;" class="point" />-->
 
-                <!--<div>徐汇区-13袁美琴、胡学庆、陈小愚-上海商学院-坚守育人初心，传承师道使命</div>-->
-                <!--<div style="position: absolute;top: 49.5%;left: 52.5%;" class="point" />-->
 
-            <!--&lt;!&ndash;<div>青浦区-周敏晖-陈云纪念馆博物馆-统一财经，打赢经济战</div>&ndash;&gt;-->
+                <!--<div>奉贤区-14袁美琴、胡学庆、陈小愚-上海商学院-坚守育人初心，传承师道使命—从教故事，育人情怀</div>-->
+                <!--<div style="position: absolute;top: 70%;left: 54.5%;" class="point" />-->
+
+            <!--<div>青浦区-周敏晖-陈云纪念馆博物馆-统一财经，打赢经济战</div>-->
 
                 <!--<CoursePoint-->
-                <!--v-show="activeCourseId"-->
-                <!--:id="activeCourse.id"-->
-                <!--:name="activeCourse.courseName"-->
-                <!--:address="activeCourse.address"-->
-                <!--:finished="!!activeCourse.isView"-->
-                <!--:class="classArray"-->
+                    <!--v-show="activeCourseId"-->
+                    <!--:id="activeCourse.id"-->
+                    <!--:name="activeCourse.courseName"-->
+                    <!--:address="activeCourse.address"-->
+                    <!--:finished="!!activeCourse.isView"-->
+                    <!--:class="classArray"-->
                 <!--/>-->
             <!--</div>-->
 
@@ -352,22 +355,23 @@
 
     .course1 {
         top: 154px;
-        left: 122px;
+        left: 160px;
     }
 
     .course2 {
         top: 196px;
-        left: 218px;
+        left: 120px;
     }
 
     .course3 {
         top: 196px;
-        left: 124px;
+        left: 340px;
     }
 
     .course4 {
         top: 238px;
-        left: 144px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .course5 {
@@ -397,7 +401,7 @@
 
     .course10 {
         top: 413px;
-        left: 140px;
+        left: 112px;
     }
 
     .course11 {
@@ -406,13 +410,20 @@
     }
 
     .course12 {
-        top: 453px;
-        left: 96px;
+        top: 413px;
+        left: 260px;
     }
 
     .course13 {
         top: 453px;
-        left: 250px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .course14 {
+        top: 493px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .fade-out {
