@@ -13,7 +13,7 @@
                 </div>
                 <div class="course-desc-item">
                     <img src="../../assets/detail/lecturer.png">
-                    <span>授课：{{ activeCourse.teacher }}</span>
+                    <span>授课：<span style="margin-right: 8px;">{{ activeCourse.college }}</span><span>{{ activeCourse.teacher }}</span></span>
                 </div>
             </div>
             <video
