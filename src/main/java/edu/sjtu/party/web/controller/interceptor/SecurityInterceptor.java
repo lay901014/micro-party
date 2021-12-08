@@ -114,50 +114,52 @@ public class SecurityInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (!(handler instanceof HandlerMethod)) {
-            return true;
-        }
+//        if (!(handler instanceof HandlerMethod)) {
+//            return true;
+//        }
+//
+//        HandlerMethod method = (HandlerMethod) handler;
+//        CheckPriviledge checkPriviledge = method.getMethodAnnotation(CheckPriviledge.class);
+//        if (checkPriviledge == null) {
+//            checkPriviledge = AnnotationUtils.findAnnotation(method.getBeanType(), CheckPriviledge.class);
+//        }
+//
+//        if (checkPriviledge == null) {
+//            //不需要登录即可访问的
+//            return true;
+//        }
+//
+//        API api = method.getMethodAnnotation(API.class);
+//        if (api == null) {
+//            api = AnnotationUtils.findAnnotation(method.getBeanType(), API.class);
+//        }
+//
+//        boolean logined = null != getLoginUserID(request);
+//
+//        if (!logined) {
+//            if (api != null) {
+//                //API访问不重定向到登陆界面
+//                response.setStatus(HttpStatus.SC_UNAUTHORIZED);
+//            } else {
+//                tryToLogin(request, response);
+//            }
+//            return false;
+//        }
+//
+//        //check privileges
+//        Power[] power = checkPriviledge.type();
+//        if (ArrayUtils.contains(power, Power.NONE)) {
+//            //不需要权限控制，登录即可访问
+//            return true;
+//        }
+//
+//        if (checkPriviledge(request, power)) {
+//            return true;
+//        }
+//
+//        return false;
 
-        HandlerMethod method = (HandlerMethod) handler;
-        CheckPriviledge checkPriviledge = method.getMethodAnnotation(CheckPriviledge.class);
-        if (checkPriviledge == null) {
-            checkPriviledge = AnnotationUtils.findAnnotation(method.getBeanType(), CheckPriviledge.class);
-        }
-
-        if (checkPriviledge == null) {
-            //不需要登录即可访问的
-            return true;
-        }
-
-        API api = method.getMethodAnnotation(API.class);
-        if (api == null) {
-            api = AnnotationUtils.findAnnotation(method.getBeanType(), API.class);
-        }
-
-        boolean logined = null != getLoginUserID(request);
-
-        if (!logined) {
-            if (api != null) {
-                //API访问不重定向到登陆界面
-                response.setStatus(HttpStatus.SC_UNAUTHORIZED);
-            } else {
-                tryToLogin(request, response);
-            }
-            return false;
-        }
-
-        //check privileges
-        Power[] power = checkPriviledge.type();
-        if (ArrayUtils.contains(power, Power.NONE)) {
-            //不需要权限控制，登录即可访问
-            return true;
-        }
-
-        if (checkPriviledge(request, power)) {
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
     /**

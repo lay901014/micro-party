@@ -8,6 +8,7 @@ import edu.sjtu.party.service.PartyService;
 import edu.sjtu.party.web.controller.annotation.CheckPriviledge;
 import edu.sjtu.party.web.controller.interceptor.SecurityInterceptor;
 import edu.sjtu.web.annotation.API;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,7 +33,7 @@ public class PartyController {
     @RequestMapping(value = "/my/course/list", method = RequestMethod.GET)
     public Response getMyCourseList(HttpServletRequest request) {
         ResponseEntity<CourseVo> result = new ResponseEntity<>(new TypeToken<Response<CourseVo>>() {}.getType());
-        result.addAll(partyService.getCourseListByOpenId(SecurityInterceptor.getLoginUserID(request)));
+        result.addAll(partyService.getCourseListByOpenId(StringUtils.isBlank(SecurityInterceptor.getLoginUserID(request)) ? "" : SecurityInterceptor.getLoginUserID(request)));
         return result;
     }
 
