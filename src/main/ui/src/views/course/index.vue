@@ -1,6 +1,6 @@
 <template>
     <div class="mobile-page">
-        <!--<img src="../../assets/home/logo.png" class="logo">-->
+        <img src="../../assets/home/logo.png" class="logo">
         <img src="../../assets/home/emblem.png" class="emblem">
         <div ref="mapWrapper" class="map-wrapper">
             <!--<div ref="map" class="map-c">-->
