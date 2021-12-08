@@ -208,6 +208,10 @@
             }
             const mapWidth = this.$refs.mapWrapper.offsetWidth;
             this.$refs.map.style.left = `${Math.ceil((mapWidth - 538) / 2)}px`;
+            window.addEventListener('resize', this.$_resizeHandler);
+        },
+        beforeDestroy() {
+            window.removeEventListener('resize', this.$_resizeHandler);
         },
         watch: {
             courseList: {
@@ -225,6 +229,11 @@
                 },
                 deep: true,
                 immediate: true
+            }
+        },
+        methods: {
+            $_resizeHandler() {
+                window.location.reload();
             }
         }
     };

@@ -1,5 +1,5 @@
 <template>
-    <div class="course-item-point" @click="handleStart">
+    <div ref="point" class="course-item-point" @click="handleStart">
         <div class="course-item-name">
             <div style="display: flex;align-items: center;">
                 <img v-if="finished" src="../../assets/course/finished.png">
@@ -51,6 +51,23 @@
         methods: {
             handleStart() {
                 this.$router.push(`/ui/course/${this.id}`)
+            }
+        },
+        watch: {
+            name(c) {
+                this.$nextTick(() => {
+                    const scrollWidth = this.$refs.point.scrollWidth;
+                    const offsetWidth = document.getElementsByClassName('mobile-page')[0].offsetWidth;
+                    if (scrollWidth > offsetWidth - 8) {
+                        this.$refs.point.style.maxWidth = `${offsetWidth - 8}px`;
+                        const strRight = window.getComputedStyle(this.$refs.point).right;
+                        const numRight = Number(strRight.replace('px', ''));
+                        if (numRight > 0) {
+                            this.$refs.point.style.right = `${numRight + Math.round((scrollWidth - offsetWidth + 8) / 2)}px`
+                        }
+                    }
+                })
+
             }
         }
     };
@@ -192,6 +209,7 @@
 
     .point8 {
         right: 121px;
+        bottom: 298px;
 
         .triangle {
             border-width: 10px 70px 10px 70px;
@@ -241,7 +259,7 @@
         bottom: 342px;
 
         .triangle {
-            border-width: 10px 110px 10px 210px;
+            border-width: 10px 90px 10px 190px;
         }
     }
 
