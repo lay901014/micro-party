@@ -24,7 +24,7 @@ public class UIController {
     private String LOGOUT_LOCATION;
 
 
-    @RequestMapping(value = { "/" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/", "/ui/**" }, method = RequestMethod.GET)
     @CheckPriviledge
     public String login() {
         return "index";
