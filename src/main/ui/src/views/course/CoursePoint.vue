@@ -50,7 +50,7 @@
         },
         methods: {
             handleStart() {
-                this.$router.push(`/ui/course/${this.id}`)
+                this.$router.push(`/ui/course/${this.courseId}`)
             }
         },
         mounted() {
