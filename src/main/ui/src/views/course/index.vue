@@ -69,15 +69,15 @@
                 <CourseItem
                     v-for="item of courseList"
                     :key="item.id"
-                    :id="item.id"
+                    :course-id="item.id"
                     :name="item.courseName"
                     :finished="!!item.isView"
                     :class="item.courseTag"
                     :active-id.sync="activeCourseId"
                 />
                 <CoursePoint
-                    v-show="activeCourseId"
-                    :id="activeCourse.id"
+                    v-if="activeCourseId"
+                    :course-id="activeCourse.id"
                     :name="activeCourse.courseName"
                     :address="activeCourse.address"
                     :finished="!!activeCourse.isView"

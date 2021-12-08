@@ -16,7 +16,7 @@
                 required: true,
                 default: ''
             },
-            id: {
+            courseId: {
                 type: String,
                 required: true
             },
@@ -42,7 +42,7 @@
                     }
                 }
                 this.createMark();
-                this.$emit('update:activeId', this.id)
+                this.$emit('update:activeId', this.courseId)
             },
             hideMark(e) {
                 this.$emit('update:activeId', null);
