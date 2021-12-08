@@ -206,12 +206,11 @@
             if (!this.courseList || this.courseList.length === 0) {
                 this.$store.dispatch('course/getCourses');
             }
-            const mapWidth = this.$refs.mapWrapper.offsetWidth;
-            this.$refs.map.style.left = `${Math.ceil((mapWidth - 538) / 2)}px`;
-            window.addEventListener('resize', this.$_resizeHandler);
+            this.updateMapPosition();
+            window.addEventListener('resize', this.updateMapPosition);
         },
         beforeDestroy() {
-            window.removeEventListener('resize', this.$_resizeHandler);
+            window.removeEventListener('resize', this.updateMapPosition);
         },
         watch: {
             courseList: {
@@ -232,8 +231,9 @@
             }
         },
         methods: {
-            $_resizeHandler() {
-                window.location.reload();
+            updateMapPosition() {
+                const mapWidth = this.$refs.mapWrapper.offsetWidth;
+                this.$refs.map.style.left = `${Math.ceil((mapWidth - 538) / 2)}px`;
             }
         }
     };

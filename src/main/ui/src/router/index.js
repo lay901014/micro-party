@@ -40,7 +40,7 @@ export const constantRoutes = [
         path: '',
         component: Layout,
         hidden: true,
-        redirect: `${baseRoute}/home`
+        redirect: `${baseRoute}`
     },
     userRouter,
     {
