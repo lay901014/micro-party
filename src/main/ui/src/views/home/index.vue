@@ -12,7 +12,7 @@
                 <img src="../../assets/home/hb.png" class="hb">
                 <img src="../../assets/home/great_wall.png" class="wall">
             </div>
-            <img src="../../assets/home/btn.png" class="btn" @click="$router.push('/ui/course')">
+            <img src="../../assets/home/btn.png" class="btn" @click="handleGo">
             <img src="../../assets/home/event_name.png" class="event_name">
         </div>
     </div>
@@ -32,6 +32,11 @@
             }
             const systemNameHeight = Math.ceil(this.$refs.system_name1.width * 0.32);
             this.$refs.system_name2.style.top = `${systemNameHeight}px`;
+        },
+        methods: {
+            handleGo() {
+                this.$router.push({ path: '/ui/preface' });
+            }
         }
     };
 </script>

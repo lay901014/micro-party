@@ -21,6 +21,14 @@ const userRouter = {
             }
         },
         {
+            name: 'preface',
+            path: 'preface',
+            component: () => import(/* webpackChunkName: "user" */'@/views/preface'),
+            meta: {
+                title: '红色商博微党课'
+            }
+        },
+        {
             name: 'course',
             path: 'course',
             component: () => import(/* webpackChunkName: "user" */'@/views/course'),
