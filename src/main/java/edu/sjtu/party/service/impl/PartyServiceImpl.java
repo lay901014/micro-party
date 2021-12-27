@@ -35,9 +35,8 @@ public class PartyServiceImpl implements PartyService {
         List<CourseVo> respList = new ArrayList<>();
         List<Course> courseList = courseDAO.getEnabledCourseList();
         for(Course course : courseList) {
-//            UserCourseQuery userCourseQuery = new UserCourseQuery(openId, course.getId());
-//            respList.add(CourseVo.convert(course, (userCourseDAO.count(userCourseQuery.getConditionMap()) > 0)));
-            respList.add(CourseVo.convert(course, false));
+            UserCourseQuery userCourseQuery = new UserCourseQuery(openId, course.getId());
+            respList.add(CourseVo.convert(course, (userCourseDAO.count(userCourseQuery.getConditionMap()) > 0)));
         }
         return respList;
     }
