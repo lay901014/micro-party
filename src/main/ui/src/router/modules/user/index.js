@@ -15,25 +15,18 @@ const userRouter = {
         {
             name: 'home',
             path: 'home',
-            component: () => import(/* webpackChunkName: "user" */'@/views/home'),
-            meta: {
-                title: '红色商博微党课'
-            }
+            component: () => import(/* webpackChunkName: "user" */'@/views/home')
         },
         {
             name: 'preface',
             path: 'preface',
-            component: () => import(/* webpackChunkName: "user" */'@/views/preface'),
-            meta: {
-                title: '红色商博微党课'
-            }
+            component: () => import(/* webpackChunkName: "user" */'@/views/preface')
         },
         {
             name: 'course',
             path: 'course',
             component: () => import(/* webpackChunkName: "user" */'@/views/course'),
             meta: {
-                title: '红色商博微党课',
                 courseList: true
             }
         },
@@ -42,7 +35,6 @@ const userRouter = {
             path: 'course/:id',
             component: () => import(/* webpackChunkName: "user" */'@/views/courseDetail'),
             meta: {
-                title: '红色商博微党课',
                 courseList: true
             }
         }

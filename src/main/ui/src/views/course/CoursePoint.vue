@@ -56,12 +56,12 @@
         mounted() {
             const scrollWidth = this.$refs.point.scrollWidth;
             const offsetWidth = document.getElementsByClassName('mobile-page')[0].offsetWidth;
-            if (scrollWidth > offsetWidth - 8) {
-                this.$refs.point.style.maxWidth = `${offsetWidth - 8}px`;
+            if (scrollWidth > offsetWidth - 12) {
+                this.$refs.point.style.maxWidth = `${offsetWidth - 12}px`;
                 const strRight = window.getComputedStyle(this.$refs.point).right;
                 const numRight = Number(strRight.replace('px', ''));
                 if (numRight > 0) {
-                    this.$refs.point.style.right = `${numRight + Math.round((scrollWidth - offsetWidth + 8) / 2)}px`
+                    this.$refs.point.style.right = `${numRight + Math.round((scrollWidth - offsetWidth + 12) / 2)}px`
                 }
             }
         }

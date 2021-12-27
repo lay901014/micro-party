@@ -144,6 +144,7 @@
     .right-out {
         animation: right_out 0.7s 1;
         animation-fill-mode: forwards;
+        left: 700px;
     }
 
     @keyframes right_out {
@@ -152,6 +153,7 @@
         /*}*/
         100% {
             left: 700px;
+            transform: none;
         }
     }
 
