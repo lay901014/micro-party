@@ -86,12 +86,12 @@
                         // 发送请求
                         const { id } = this.$route.params;
                         if (id) {
-                            // setCourseState(id).then(res => {
-                            //     const { errno } = res;
-                            //     if (errno === 0) {
-                            //         this.$store.dispatch('course/getCourses');
-                            //     }
-                            // })
+                            setCourseState(id).then(res => {
+                                const { errno } = res;
+                                if (errno === 0) {
+                                    this.$store.dispatch('course/getCourses');
+                                }
+                            })
                         }
                         this.$refs.video.removeEventListener('play', this.playEvent);
                         this.$refs.video.removeEventListener('playing', this.playEvent);
